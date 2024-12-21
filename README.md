@@ -62,13 +62,23 @@ module full_add_sub(sum,cout,a,b,cin);
  assign sum=W1^cin;
  assign cout=W2|W3;
  endmodule
+
+module Full_sub(a,b,bin,difference,borrow);
+input a,b,bin;
+output difference,borrow;
+assign difference= ( (a ^ b)^bin);
+assign borrow= ( ( ~a & b)| ( bin & (~(a ^ b ))));
+endmodule
+
 ```
 
 **RTL Schematic**
 ![output04fullas (de)](https://github.com/user-attachments/assets/a6543933-093d-46fa-a3c6-3776628100df)
+![Screenshot 2024-12-21 222818](https://github.com/user-attachments/assets/a03ed6c2-a900-4fca-828e-fcf3c5843fc8)
 
 **Output Timing Waveform**
 ![waveform(04)fullas](https://github.com/user-attachments/assets/bd882857-0b61-45d9-beb8-c55037c48a93)
+![Screenshot 2024-12-21 222927](https://github.com/user-attachments/assets/56ab3c37-e531-4504-b415-21a2c8769db1)
 
 **Result:**
 
